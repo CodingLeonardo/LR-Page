@@ -4,3 +4,49 @@ body{
     box-sizing: border-box;
     font-family: 'Source Sans Pro', sans-serif;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    margin: 0;
+    font-family: 'Fjalla One', sans-serif;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background: #000000;
+    color: white;
+}
+.logo{
+    margin: 0 10px;
+}
+.menu{
+    display: inherit;
+    height: inherit;
+    align-items: inherit;
+}
+.menu ul{
+    display: inherit;
+    align-items: inherit;
+    height: inherit;
+    margin: 0;
+    padding: 0;
+}
+.menu ul li{
+    display: inherit;
+    align-items: inherit;
+    height: inherit;
+    margin: 0 5px;
+}
+.menu ul li a{
+    display: inherit;
+    align-items: inherit;
+    height: inherit;
+    padding: 0 10px;
+    text-decoration: none;
+    color: white;
+}
