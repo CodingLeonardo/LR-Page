@@ -79,3 +79,15 @@ header{
     border: #00c943 solid 2px;
     margin: 0 0 10px 0;
 }
+.about-me{
+    background: #fafafa;
+    text-align: center;
+    padding: 20px 0;
+}
+.title-about-me{
+    font-size: 35px;
+    font-weight: 400;
+}
+.parrafo-about-me{
+    font-size: 18px;
+}
