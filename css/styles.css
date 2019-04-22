@@ -91,3 +91,51 @@ header{
 .parrafo-about-me{
     font-size: 18px;
 }
+.skills{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+.title-skills{
+    text-align: center;
+    font-size: 35px;
+    font-weight: 200;
+    margin: 10px 0;
+}
+.title-skill{
+    font-weight: 300;
+}
+.container-skills{
+    display: inherit;
+    width: 300px;
+    flex-direction: column;
+    justify-content: center;
+    background: #fafafa;
+    padding: 10px;
+    box-shadow: 0px 0px 10px #969595;
+}
+.skill{
+    width: 300px;
+    height: 30px;
+    background: #000000;
+    color: white;
+    margin: 10px 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+.skill.html{
+    width: calc(300px - 10%);
+    background: #00c943;
+}
+.skill.css{
+    width: calc(300px - 50%);
+    background: rebeccapurple;
+}
+.skill.js{
+    width: calc(300px - 80%);
+    background: cadetblue;
+}
