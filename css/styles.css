@@ -127,6 +127,10 @@ header{
     align-items: center;
     position: relative;
 }
+.skill h5{
+    font-weight: 200;
+    margin-right: 5px;
+}
 .skill.html{
     width: calc(300px - 10%);
     background: #00c943;
@@ -138,4 +142,57 @@ header{
 .skill.js{
     width: calc(300px - 80%);
     background: cadetblue;
+}
+
+.contact{
+    background-color: #026fff;
+    color: white;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.form-email h3{
+    margin: 20px 0;
+}
+.form-email input {
+    border-color: gray;
+    padding: 5px 20px 5px 25px;
+    border-style: solid;
+    border-radius: 5px;
+    background-image: url(../img/envelope.svg);
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 5px;
+}
+.form-email button {
+    display: block;
+    margin-top: 10px;
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    padding: 5px 0;
+    border-radius: 5px;
+    width: 100px;
+    margin-top: 10px;
+}
+.social-link {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    background-size: 50px 50px;
+}
+.social-link.twitter {
+    background-image: url(../img/twitter.svg);
+}
+.social-link.facebook {
+    background-image: url(../img/facebook.svg);
+}
+.social-link.github {
+    background-image: url(../img/github.svg);
+}
+.social-link.instagram {
+    background-image: url(../img/instagram.svg);
 }
