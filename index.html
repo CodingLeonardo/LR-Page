@@ -9,28 +9,34 @@
 </head>
 <body>
     <header>
-        <figure class="logo">
-            <h1>Leonardo Rivero</h1>
-        </figure>
-        <nav class="menu">
-            <ul>
-                <li><a href="#">Sobre mi</a></li>
-                <li><a href="#">Certificados</a></li>
-                <li><a href="#">Habilidades</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <figure class="logo">
+                <h1>Leonardo Rivero</h1>
+            </figure>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#">Sobre mi</a></li>
+                    <li><a href="#">Certificados</a></li>
+                    <li><a href="#">Habilidades</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <section class="hero">
-        <div class="container-hero">
-            <h1 class="title-hero">Leonardo Rivero</h1>
-            <div class="linea"></div>
-            <h2 class="subtitle-hero">Es Desarrollador Frontend</h2>
+        <div class="container">
+            <div class="container-hero">
+                <h1 class="title-hero">Leonardo Rivero</h1>
+                <div class="linea"></div>
+                <h2 class="subtitle-hero">Es Desarrollador Frontend</h2>
+            </div>
         </div>
     </section>
     <section class="about-me">
-        <h3 class="title-about-me">Sobre mi</h3>
-        <p class="parrafo-about-me">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore expedita nisi, nulla magnam veritatis a architecto ab ratione eligendi, corrupti ipsum impedit minima assumenda sequi sit cum deserunt delectus dolore alias tenetur animi, laborum aspernatur illum dolorum. Cupiditate ad esse quasi corrupti quibusdam, ab quaerat explicabo veniam ipsam sapiente voluptatibus.</p>
+        <div class="container">
+            <h3 class="title-about-me">Sobre mi</h3>
+            <p class="parrafo-about-me">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore expedita nisi, nulla magnam veritatis a architecto ab ratione eligendi, corrupti ipsum impedit minima assumenda sequi sit cum deserunt delectus dolore alias tenetur animi, laborum aspernatur illum dolorum. Cupiditate ad esse quasi corrupti quibusdam, ab quaerat explicabo veniam ipsam sapiente voluptatibus.</p>
+        </div>
     </section>
     <!-- <section class="certificados">
         <figure class="container-certificados">
@@ -42,42 +48,50 @@
         </figure>
     </section> -->
     <section class="skills">
-        <h2 class="title-skills">Habilidades</h2>
-        <div class="container-skills">
-            <h4 class="title-skill">Html</h4>
-            <div class="skill html">
-                <h5>90%</h5>
-            </div>
-            <h4 class="title-skill">Css</h4>
-            <div class="skill css">
-                <h5>50%</h5>
-            </div>
-            <h4 class="title-skill">Javascript</h4>
-            <div class="skill js">
-                <h5>20%</h5>
+        <div class="container">
+            <h2 class="title-skills">Habilidades</h2>
+        </div>
+        <div class="container">
+            <div class="container-skills">
+                <h4 class="title-skill">Html</h4>
+                <div class="skill html">
+                    <h5>90%</h5>
+                </div>
+                <h4 class="title-skill">Css</h4>
+                <div class="skill css">
+                    <h5>50%</h5>
+                </div>
+                <h4 class="title-skill">Javascript</h4>
+                <div class="skill js">
+                    <h5>20%</h5>
+                </div>
             </div>
         </div>
     </section>
     <section id="contacto" class="contact">
-        <form action="/suscripcion/" class="form-email">
-        <h3>¿Creamos algo juntos?</h3>
-        <input type="text" placeholder="Déjame tu email" id="email">
-        <button>Enviar</button>
-      </form>
-      <div class="social">
-        <a href="https:\\twitter.com/leonidasesteban" class="social-link twitter"></a>
-        <a href="https:\\facebook.com/Leonidas.esteban" class="social-link facebook"></a>
-        <a href="https:\\github.com/leonidasesteban" class="social-link github"></a>
-        <a href="https:\\instagram.com/leonidasesteban" class="social-link instagram"></a>
-      </div>
+        <div class="container">
+            <form action="/suscripcion/" class="form-email">
+                <h3>¿Creamos algo juntos?</h3>
+                <input type="text" placeholder="Déjame tu email" id="email">
+                <button>Enviar</button>
+            </form>
+            <div class="social">
+                <a href="https:\\twitter.com/leonidasesteban" class="social-link twitter"></a>
+                <a href="https:\\facebook.com/Leonidas.esteban" class="social-link facebook"></a>
+                <a href="https:\\github.com/leonidasesteban" class="social-link github"></a>
+                <a href="https:\\instagram.com/leonidasesteban" class="social-link instagram"></a>
+            </div>
+        </div>
     </section>
     <footer class="footer ">
-        <div>
-        <p>Curso de Desarrollo web online 2019 <img src="img/platzi.png" width="80" alt=""></p>
-      </div>
-      <div>
-        <p>Designed with <\3 by <a href="https://twitter.com/thespianartist">@thespianartist</a></p>
-      </div>
+        <div class="container">
+            <div>
+                <p>Curso de Desarrollo web online 2019 <img src="img/platzi.png" width="80" alt=""></p>
+            </div>
+            <div>
+                <p>Designed with <\3 by <a href="https://twitter.com/thespianartist">@thespianartist</a></p>
+            </div>
+        </div>
     </footer>
     <script src="js/main.js"></script>
 </body>
