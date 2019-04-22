@@ -196,3 +196,26 @@ header{
 .social-link.instagram {
     background-image: url(../img/instagram.svg);
 }
+.footer {
+    color: white;
+    background-color: #1d252c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer img {
+    width: 80px;
+    vertical-align: middle;
+}
+.footer a {
+    color: white;
+}
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    height: inherit;
+    flex-wrap: inherit;
+}
