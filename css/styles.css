@@ -211,11 +211,20 @@ header{
     color: white;
 }
 .container {
-    width: 1000px;
+    /* width: 1000px;
     margin: 0 auto;
     display: inherit;
     justify-content: inherit;
     align-items: inherit;
     height: inherit;
-    flex-wrap: inherit;
+    flex-wrap: inherit; */
+}
+.container{
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    display: inherit;
+    height: inherit;
+    justify-content: inherit;
+    align-items: inherit;
 }
