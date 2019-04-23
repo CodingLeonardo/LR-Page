@@ -250,3 +250,13 @@ header{
     justify-content: inherit;
     align-items: inherit;
 }
+
+/* Animaciones */
+.menu ul li a:hover{
+    transition: .5s;
+    color: black;
+    background: #ffffff;
+    transform: scale(1.2);
+    border-radius: 5px;
+    will-change: color, background, transform, border-radius;
+}
