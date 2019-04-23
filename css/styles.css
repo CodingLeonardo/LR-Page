@@ -111,6 +111,7 @@ header{
 .certificado img{
     width: 300px;
     height: 200px;
+    box-shadow: 0 0 10px #969595;
 }
 .skills{
     display: flex;
@@ -259,4 +260,9 @@ header{
     transform: scale(1.2);
     border-radius: 5px;
     will-change: color, background, transform, border-radius;
+}
+.certificado:hover img{
+    transition: 1s;
+    transform: scale(1.4);
+    box-shadow: 0 0 10px #969595;
 }
