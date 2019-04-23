@@ -91,11 +91,33 @@ header{
 .parrafo-about-me{
     font-size: 18px;
 }
+.certificados{
+    text-align: center;
+    padding: 20px 0;
+}
+.title-certificados{
+    font-size: 35px;
+    font-weight: 300;
+}
+.container-certificados{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.certificado{
+    margin: 10px;
+}
+.certificado img{
+    width: 300px;
+    height: 200px;
+}
 .skills{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: #fafafa;
     padding: 20px 0;
 }
 .title-skills{
