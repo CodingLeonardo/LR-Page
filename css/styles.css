@@ -266,3 +266,7 @@ header{
     transform: scale(1.4);
     box-shadow: 0 0 10px #969595;
 }
+.skill:hover{
+    transition: 1s;
+    transform: scale(1.3);
+}
