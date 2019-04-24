@@ -270,3 +270,7 @@ header{
     transition: 1s;
     transform: scale(1.3);
 }
+.social-link:hover{
+    transition: 1s;
+    transform: scale(1.5);
+}
