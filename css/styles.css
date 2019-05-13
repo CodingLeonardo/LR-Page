@@ -291,3 +291,17 @@ header{
     transition: .2s;
     transform: scale(.8);
 }
+.people{
+    margin: 0 10px;
+}
+.people img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #cccccc 
+}
+.about-me-container{
+    display: inline-flex;
+    align-items: center;
+}
