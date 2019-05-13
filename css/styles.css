@@ -55,6 +55,7 @@ header{
     height: 84vh;
     background: url(../img/work.jpg);
     background-size: 100%;
+    background-repeat: no-repeat;
     object-fit: cover;
     display: flex;
     justify-content: center;
@@ -273,4 +274,20 @@ header{
 .social-link:hover{
     transition: 1s;
     transform: scale(1.5);
+}
+.btn{
+    border: none;
+    background: #cfcfcf;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: inset 0px -5px 0 rgba(0, 0, 0, .3);
+    padding: 10px 15px
+}
+.warnign{
+    background: #eb0000;
+}
+.btn:active{
+    transition: .2s;
+    transform: scale(.8);
 }
