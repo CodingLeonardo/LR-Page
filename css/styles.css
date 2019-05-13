@@ -290,6 +290,7 @@ header{
 .btn:active{
     transition: .2s;
     transform: scale(.8);
+<<<<<<< HEAD
 }
 .people{
     margin: 0 10px;
@@ -304,4 +305,6 @@ header{
 .about-me-container{
     display: inline-flex;
     align-items: center;
+=======
+>>>>>>> Animaciones
 }
