@@ -200,6 +200,11 @@ header{
     border-radius: 5px;
     width: 100px;
     margin-top: 10px;
+    cursor: pointer;
+}
+.form-email button:hover {
+    background: white;
+    color: #026fff;
 }
 .social-link {
     display: inline-block;
