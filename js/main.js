@@ -1,7 +1,13 @@
 const $Menu = document.querySelector('header')
 const $MenuUl = document.querySelector('.menu ul')
-const $Certificados = document.querySelector('.container-certificados')
-const $Skills = document.querySelector('.container-skills')
+const $CertificadosC = document.querySelector('.container-certificados')
+const $SkillsC = document.querySelector('.container-skills')
+
+
+const $AboutMe = document.querySelector('#about-me')
+const $Certificados = document.querySelector('#certificados')
+const $Skills = document.querySelector('#skills')
+const $Contact = document.querySelector('#contact')
 
 // Menu Section
 const menu = {
@@ -16,19 +22,23 @@ const menu = {
         '#certificados', 
         '#skills', 
         '#contact'
-    ]
-    
+    ],
 }
 // Certificados Section
+const extImg = '.svg'
 const urlImg = 'img/diploma-';
 const certificados = {
     srcImg: [
-        `${urlImg}programacion-basica.jpg`, 
-        `${urlImg}marca-personal.jpg`, 
-        `${urlImg}html5-css3.jpg`, 
-        `${urlImg}git-github-2017.jpg`, 
-        `${urlImg}css-grid-layoud.jpg`, 
-        `${urlImg}animaciones-web.jpg`
+        `${urlImg}programacion-basica${extImg}`, 
+        `${urlImg}marca-personal${extImg}`, 
+        `${urlImg}html5-css3${extImg}`, 
+        `${urlImg}responsive-design${extImg}`, 
+        `${urlImg}git-github${extImg}`, 
+        `${urlImg}css-grid-layout${extImg}`, 
+        `${urlImg}animaciones-web${extImg}`,
+        `${urlImg}postcss${extImg}`,
+        `${urlImg}optimizacion-web${extImg}`,
+        `${urlImg}fundamentos-javascript${extImg}`
     ]
 
 }
@@ -72,7 +82,7 @@ const templateCertificado = function (src) {
         `
     )
 }
-const templateItemMenu = function (nameSection, idSection) {
+const templateItemMenu = function (nameSection, idSection, fn) {
     return(
         `<li><a href=${idSection}>${nameSection}</a></li>
         `
@@ -92,28 +102,34 @@ const render = function (node, template) {
     node.innerHTML += template
 }
 
-const imprimirMenu = function () {
+const imprimirMenu = async function () {
     for(var i = 0; i < menu.nameMenu.length; i++){
-        render($MenuUl, templateItemMenu(menu.nameMenu[i], menu.idMenu[i]))
+        await render($MenuUl, templateItemMenu(menu.nameMenu[i], menu.idMenu[i]))
     }
 }
 
-const imprimirSkills = function () {
+const imprimirSkills = async function () {
     for(var i = 0; i < skills.titleSkill.length; i++){
-        render($Skills, templateSkill(skills.titleSkill[i], skills.levelSkill[i], skills.classSkill[i]))
+        await render($SkillsC, templateSkill(skills.titleSkill[i], skills.levelSkill[i], skills.classSkill[i]))
     }
 }
 
-const imprimirCertificados = function () {
+const imprimirCertificados = async function () {
     for(var i = 0; i < certificados.srcImg.length; i++){
-        render($Certificados, templateCertificado(certificados.srcImg[i]))
+        await render($CertificadosC, templateCertificado(certificados.srcImg[i]))
     }
+}
+
+const scrollSmooth = function (element) {
+    element.scrollIntoView({
+        behavior: 'smooth'
+    })
 }
 
 const inicializarPagina = function (){
+    imprimirMenu()
     imprimirCertificados()
     imprimirSkills()
-    imprimirMenu()
 }
 
 inicializarPagina()
