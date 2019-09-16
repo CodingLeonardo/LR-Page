@@ -2,7 +2,7 @@ const $Menu = document.querySelector('header')
 const $MenuUl = document.querySelector('.menu ul')
 const $CertificadosC = document.querySelector('.container-certificados')
 const $SkillsC = document.querySelector('.container-skills')
-
+const $OnLoad = document.querySelector('#onload')
 
 const $AboutMe = document.querySelector('#about-me')
 const $Certificados = document.querySelector('#certificados')
@@ -39,8 +39,20 @@ const certificados = {
         `${urlImg}postcss${extImg}`,
         `${urlImg}optimizacion-web${extImg}`,
         `${urlImg}fundamentos-javascript${extImg}`
-    ]
-
+    ],
+    nameImg: [
+        'programacion-basica',
+        'marca-personal',
+        'html5-css3',
+        'responsive-design',
+        'git-github',
+        'css-grid-layout',
+        'animaciones-web',
+        'postcss',
+        'optimizacion-web',
+        'fundamentos-javascript'
+    ],
+    
 }
 // Skills Section
 const skills = {
@@ -61,11 +73,25 @@ const skills = {
     ]
 }
 
+const preCargarImagenen = function (nombreDeVariable, src){
+    var nombreDeVariable = new Image;
+    nombreDeVariable.src = src;
+    return nombreDeVariable
+}
+
+const preCargarImagenenes = function () {
+    var array = new Array;
+    for(var i = 0; i < certificados.srcImg.length; i++){
+        array.push(preCargarImagenen(certificados.nameImg[i], certificados.srcImg[i]))
+    }
+    return array
+}
+
 const MenuScrollIn = function () {
     $Menu.style.position = 'fixed'
     $Menu.style.top = '0'
     $Menu.style.left = '0'
-    $Menu.style.zIndex = '99'
+    $Menu.style.zIndex = '1'
 }
 const MenuScrollOut = function () {
     $Menu.style.position = 'initial'
@@ -120,6 +146,16 @@ const imprimirCertificados = async function () {
     }
 }
 
+function eliminarElemento(id){
+	imagen = document.getElementById(id)
+	if (!imagen){
+		console.log("El elemento selecionado no existe")
+	} else {
+		padre = imagen.parentNode
+		padre.removeChild(imagen)
+	}
+}
+
 const scrollSmooth = function (element) {
     element.scrollIntoView({
         behavior: 'smooth'
@@ -132,7 +168,30 @@ const inicializarPagina = function (){
     imprimirSkills()
 }
 
+window.addEventListener('load', preCargarImagenenes)
+
+window.onload = function (){
+    if(window.scrollY > 1){
+        window.scroll(1, 1)
+    }
+    $OnLoad.animate([
+        { opacity: 1 },
+        { opacity: 0.5 },
+        { opacity: 0 },
+    ], {
+        duration: 500,
+        fill: 'forwards'
+    })
+    if(window.onload){
+        setTimeout(function(){
+            eliminarElemento('onload')
+            document.body.classList.remove('hidden')
+        }, 500)
+    }
+}
+
 inicializarPagina()
+
 
 document.addEventListener('scroll', function (){
     if(window.scrollY > 1){
