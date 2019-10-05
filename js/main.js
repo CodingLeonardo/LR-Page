@@ -116,9 +116,12 @@ const templateItemMenu = function (nameSection, idSection, fn) {
 }
 const templateSkill = function (title, level, className) {
     return(
-        `<h4 class="title-skill">${title}</h4>
-        <div class="skill ${className}">
-            <h5>${level}</h5>
+        `
+        <div>
+            <h4 class="title-skill">${title}</h4>
+            <div class="skill ${className}">
+                <h5>${level}</h5>
+            </div>
         </div>
         `
     )
@@ -130,19 +133,22 @@ const render = function (node, template) {
 
 const imprimirMenu = async function () {
     for(var i = 0; i < menu.nameMenu.length; i++){
-        await render($MenuUl, templateItemMenu(menu.nameMenu[i], menu.idMenu[i]))
+        // await render($MenuUl, templateItemMenu(menu.nameMenu[i], menu.idMenu[i]))
+        await renderTemplate($MenuUl, templateItemMenu(menu.nameMenu[i], menu.idMenu[i]))
     }
 }
 
 const imprimirSkills = async function () {
     for(var i = 0; i < skills.titleSkill.length; i++){
-        await render($SkillsC, templateSkill(skills.titleSkill[i], skills.levelSkill[i], skills.classSkill[i]))
+        // await render($SkillsC, templateSkill(skills.titleSkill[i], skills.levelSkill[i], skills.classSkill[i]))
+        await renderTemplate($SkillsC, templateSkill(skills.titleSkill[i], skills.levelSkill[i], skills.classSkill[i]))
     }
 }
 
 const imprimirCertificados = async function () {
     for(var i = 0; i < certificados.srcImg.length; i++){
-        await render($CertificadosC, templateCertificado(certificados.srcImg[i]))
+        // await render($CertificadosC, templateCertificado(certificados.srcImg[i]))
+        await renderTemplate($CertificadosC, templateCertificado(certificados.srcImg[i]))
     }
 }
 
@@ -154,6 +160,27 @@ function eliminarElemento(id){
 		padre = imagen.parentNode
 		padre.removeChild(imagen)
 	}
+}
+
+const createTemplate = function(HTMLString){
+    const html = document.implementation.createHTMLDocument()
+    html.body.innerHTML = HTMLString
+    return html.body.children[0]
+}
+
+const renderTemplateCertificados = function ($container, template){
+    const HTMLString = template
+    const element = createTemplate(HTMLString)
+    element.onload = function (){
+        element.src = 'img/loader.gif'
+    }
+    $container.append(element)
+}
+
+const renderTemplate = function($container, template){
+    const HTMLString = template
+    const element = createTemplate(HTMLString)
+    $container.append(element)
 }
 
 const scrollSmooth = function (element) {
