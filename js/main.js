@@ -1,9 +1,16 @@
-const $Menu = document.querySelector('header')
+// Element Containers
 const $MenuUl = document.querySelector('.menu ul')
 const $CertificadosC = document.querySelector('.container-certificados')
 const $SkillsC = document.querySelector('.container-skills')
+
+// Element OnLoad
 const $OnLoad = document.querySelector('#onload')
 
+// Element Barrier
+const $Barrier = document.querySelector('#barrier')
+
+// Elemet Sections
+const $Menu = document.querySelector('header')
 const $AboutMe = document.querySelector('#about-me')
 const $Certificados = document.querySelector('#certificados')
 const $Skills = document.querySelector('#skills')
@@ -11,13 +18,13 @@ const $Contact = document.querySelector('#contact')
 
 // Menu Section
 const menu = {
-    nameMenu: [
+    nameSection: [
         'Sobre mi', 
         'Certificados', 
         'Habilidades', 
         'Contacto'
     ],
-    idMenu: [
+    idSection: [
         '#about-me', 
         '#certificados', 
         '#skills', 
@@ -72,34 +79,7 @@ const skills = {
         'Basico'
     ]
 }
-
-const preCargarImagenen = function (nombreDeVariable, src){
-    var nombreDeVariable = new Image;
-    nombreDeVariable.src = src;
-    return nombreDeVariable
-}
-
-const preCargarImagenenes = function () {
-    var array = new Array;
-    for(var i = 0; i < certificados.srcImg.length; i++){
-        array.push(preCargarImagenen(certificados.nameImg[i], certificados.srcImg[i]))
-    }
-    return array
-}
-
-const MenuScrollIn = function () {
-    $Menu.style.position = 'fixed'
-    $Menu.style.top = '0'
-    $Menu.style.left = '0'
-    $Menu.style.zIndex = '1'
-}
-const MenuScrollOut = function () {
-    $Menu.style.position = 'initial'
-    $Menu.style.top = 'initial'
-    $Menu.style.left = 'initial'
-    $Menu.style.zIndex = 'initial'
-}
-
+// Templates
 const templateCertificado = function (src) {
     return(
         `<div class="certificado">
@@ -108,9 +88,9 @@ const templateCertificado = function (src) {
         `
     )
 }
-const templateItemMenu = function (nameSection, idSection, fn) {
+const templateItemMenu = function (nameSection, idSection) {
     return(
-        `<li><a href=${idSection}>${nameSection}</a></li>
+        `<li><a onclick="scrollSmooth('${idSection}')">${nameSection}</a></li>
         `
     )
 }
@@ -126,15 +106,11 @@ const templateSkill = function (title, level, className) {
         `
     )
 }
-
-const render = function (node, template) {
-    node.innerHTML += template
-}
-
+// Render Templates
 const imprimirMenu = async function () {
-    for(var i = 0; i < menu.nameMenu.length; i++){
+    for(var i = 0; i < menu.nameSection.length; i++){
         // await render($MenuUl, templateItemMenu(menu.nameMenu[i], menu.idMenu[i]))
-        await renderTemplate($MenuUl, templateItemMenu(menu.nameMenu[i], menu.idMenu[i]))
+        await renderTemplate($MenuUl, templateItemMenu(menu.nameSection[i], menu.idSection[i]))
     }
 }
 
@@ -151,79 +127,75 @@ const imprimirCertificados = async function () {
         await renderTemplate($CertificadosC, templateCertificado(certificados.srcImg[i]))
     }
 }
-
+// Eliminar Elemento Function
 function eliminarElemento(id){
-	imagen = document.getElementById(id)
+	let imagen = document.getElementById(id)
 	if (!imagen){
 		console.log("El elemento selecionado no existe")
 	} else {
-		padre = imagen.parentNode
+		let padre = imagen.parentNode
 		padre.removeChild(imagen)
 	}
 }
-
+// Create Template Function
 const createTemplate = function(HTMLString){
     const html = document.implementation.createHTMLDocument()
     html.body.innerHTML = HTMLString
     return html.body.children[0]
 }
-
-const renderTemplateCertificados = function ($container, template){
-    const HTMLString = template
-    const element = createTemplate(HTMLString)
-    element.onload = function (){
-        element.src = 'img/loader.gif'
-    }
-    $container.append(element)
-}
-
+// Render Template Function
 const renderTemplate = function($container, template){
     const HTMLString = template
     const element = createTemplate(HTMLString)
     $container.append(element)
 }
-
-const scrollSmooth = function (element) {
+// Barrier Scroll Function
+const barrierScroll = function(){
+    let scrollB = document.documentElement.scrollTop
+    let heightB = document.documentElement.scrollHeight - document.documentElement.clientHeight
+    let scrolled = (scrollB / heightB) * 100
+    $Barrier.style.willChange = 'width'
+    $Barrier.style.width = scrolled + '%'
+}
+// Scroll Smooth Function
+const scrollSmooth = function (idSection) {
+    let element = document.querySelector(idSection)
     element.scrollIntoView({
         behavior: 'smooth'
     })
 }
-
+const scrollPreloader = function(){
+    if(document.documentElement.scrollTop > 1){
+        document.documentElement.scroll(0,0)
+    }
+}
+// Inicializar Pagina Function
 const inicializarPagina = function (){
     imprimirMenu()
     imprimirCertificados()
     imprimirSkills()
 }
-
-window.addEventListener('load', preCargarImagenenes)
-
-window.onload = function (){
-    if(window.scrollY > 1){
-        window.scroll(1, 1)
-    }
+// Pre Loader Page Function
+const preloaderPage = function(){
+    document.addEventListener('scroll', scrollPreloader, false)
     $OnLoad.animate([
         { opacity: 1 },
         { opacity: 0.5 },
-        { opacity: 0 },
-    ], {
+        { opacity: 0 }
+    ],{
         duration: 500,
         fill: 'forwards'
     })
-    if(window.onload){
-        setTimeout(function(){
-            eliminarElemento('onload')
-            document.body.classList.remove('hidden')
-        }, 500)
-    }
+    setTimeout(function(){
+        document.removeEventListener('scroll', scrollPreloader, false)
+        eliminarElemento('onload')
+        document.body.classList.remove('hidden')
+        $Menu.style.position = 'fixed'
+        inicializarPagina()
+    }, 500)
 }
+// Preloader Window
+window.onload = preloaderPage
+// Barrier Scroll Window
+window.onscroll = barrierScroll
 
-inicializarPagina()
-
-
-document.addEventListener('scroll', function (){
-    if(window.scrollY > 1){
-        MenuScrollIn()
-    } else{
-        MenuScrollOut()
-    }
-})
