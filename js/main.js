@@ -1,10 +1,15 @@
+let exitMenuBurger = true
 // Element Containers
+const $MenuC = document.querySelector('#menu')
 const $MenuUl = document.querySelector('.menu ul')
 const $CertificadosC = document.querySelector('.container-certificados')
 const $SkillsC = document.querySelector('.container-skills')
 
 // Element OnLoad
 const $OnLoad = document.querySelector('#onload')
+
+// Element Open
+const $Open = document.querySelector('#open')
 
 // Element Barrier
 const $Barrier = document.querySelector('#barrier')
@@ -157,6 +162,17 @@ const barrierScroll = function(){
     $Barrier.style.willChange = 'width'
     $Barrier.style.width = scrolled + '%'
 }
+// Apertura Menu Burger
+const AperturaMenuBurger = function(){
+    if(exitMenuBurger){
+        $MenuC.style.width = '70vw'
+        exitMenuBurger = false
+    } else{
+        $MenuC.style.width = '0%'
+        $MenuC.style.overflow = 'hidden'
+        exitMenuBurger = true
+    }
+}
 // Scroll Smooth Function
 const scrollSmooth = function (idSection) {
     let element = document.querySelector(idSection)
@@ -194,6 +210,8 @@ const preloaderPage = function(){
         inicializarPagina()
     }, 500)
 }
+// add Event Listener Open Menu Burger
+$Open.addEventListener('click', AperturaMenuBurger)
 // Preloader Window
 window.onload = preloaderPage
 // Barrier Scroll Window
