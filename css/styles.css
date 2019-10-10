@@ -474,7 +474,7 @@ header{
 @media screen and (max-width: 425px){
     .hero{
         margin-top: 56px;
-        height: 80vh;
+        height: 60vh;
     }
     .title-hero{
         font-size: 3.5em;
@@ -504,7 +504,7 @@ header{
 }
 @media screen and (max-width: 375px){
     .hero{
-        height: 75vh;
+        height: 60vh;
     }
     .title-hero{
         font-size: 3em;
@@ -512,7 +512,7 @@ header{
 }
 @media screen and (max-width: 320px){
     .hero{
-        height: 65vh;
+        height: 45vh;
     }
     .title-hero{
         font-size: 2.5em;
